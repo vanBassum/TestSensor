@@ -1,0 +1,13 @@
+esphome:
+    includes:
+        - my_custom_sensor.h
+    sensor:
+        - platform: custom
+    lambda: |-
+        auto my_sensor = new MyCustomSensor();
+        App.register_component(my_sensor);
+        return {my_sensor};
+    sensors:
+        name: "My Custom Sensor"  
+        unit_of_measurement: hPa
+        accuracy_decimals: 2
